@@ -50,6 +50,28 @@ class Cards extends \yii\db\ActiveRecord
         return $card->delete();
     }
 
+    public function cardIsFree($nomber){
+        $card = $this->find()->where(['nomber'=>$nomber])->one();
+        if($card == null){
+            return false;
+        }
+        if($card->valid == 1 && $card->used == 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setCardAsUsed($nomber){
+        $card = $this->find()->where(['nomber'=>$nomber])->one();
+        $card->used = 1;
+        if($card->save()){
+            return true;
+        }
+        return false;
+
+    }
+
     /**
      * {@inheritdoc}
      */

@@ -3,10 +3,25 @@
 namespace app\controllers;
 use Yii;
 use app\models\Cards;
-
+use app\controllers\AccsessControl;
+use yii\filters\AccessControl;
 class CardsController extends \yii\web\Controller
 {
 
+
+    public function behaviors(){
+        return [
+        'access' => [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['manageCards'],
+                ],
+            ],
+        ],
+    ];
+    }
 
     public function actionIndex()
     {
@@ -63,5 +78,9 @@ class CardsController extends \yii\web\Controller
     	return $this->render('delete-complite');
     }
 
+
+    public function actionAddFileForm(){
+    	return $this->render('add-file-form');
+    }
 
 }

@@ -56,7 +56,8 @@ AppAsset::register($this);
                         ['label'=>'Добавить массив карт (файлом)','url'=>['cards/add-file-form'], 'visible'=> Yii::$app->user->can('manageCards')],
                         
                         ['label'=>'-'],
-                        ['label'=>'Свойства Пользователя','url'=>['customers/user-index'], 'visible' => Yii::$app->user->can('manageCustomers')],
+                        ['label'=>'Зарегистрировать покупателя','url'=>['customers/add-form'], 'visible' => Yii::$app->user->can('manageCustomers')],
+                        ['label'=>'-'],
                         ['label'=>'Свойства Скидок','url'=>['sales/sale-index'], 'visible' => Yii::$app->user->can('manageDiscount')],
                         ['label'=>'Отзывы','url'=>['/site/contact'], 'visible'=>Yii::$app->user->can('managerDiscount')],
                         ['label'=>'-'],
