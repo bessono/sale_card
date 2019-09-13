@@ -42,9 +42,7 @@ class Cards extends \yii\db\ActiveRecord
     }
 
     public function cardIssue($nomber){
-        //$card = $this->hasOne(Customers::className(),['card_id'=>'nomber'])->where(['nomber'=>$nomber]); 
-        $card = $this->find()->where(['nomber'=>$nomber])->one();
-        return $card;
+        return $card = $this->find()->where(['nomber'=>$nomber])->one();
     }
 
     public function dateCardById($id){
