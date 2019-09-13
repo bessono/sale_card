@@ -21,7 +21,7 @@ if((isset($data->id)) && $data != null){
 	echo 'Действительна = '. $valid;
 	echo Html::tag('br');
 	echo 'Действительна до = '. date('d-m-Y',$data->valid_to);
-	$used = $data->used == 0 ? "Нет" : "Да";
+	$used = $data->used == 0 ? "Нет" : Html::tag('br').$data->customer->customer_name.' '.$data->customer->customer_phone;
 	echo Html::tag('br');
 	echo 'Оспользуется покупателем = '.$used;
 	echo Html::tag('br');

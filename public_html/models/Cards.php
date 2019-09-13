@@ -42,7 +42,9 @@ class Cards extends \yii\db\ActiveRecord
     }
 
     public function cardIssue($nomber){
-        return $this->find()->where(['nomber'=>$nomber])->one();
+        //$card = $this->hasOne(Customers::className(),['card_id'=>'nomber'])->where(['nomber'=>$nomber]); 
+        $card = $this->find()->where(['nomber'=>$nomber])->one();
+        return $card;
     }
 
     public function dateCardById($id){
@@ -60,6 +62,10 @@ class Cards extends \yii\db\ActiveRecord
         } else {
             return false;
         }
+    }
+
+    public function getCustomer(){
+        return $this->hasOne(Customers::className(),['card_id'=>'nomber']);
     }
 
     public function setCardAsUsed($nomber){
@@ -88,4 +94,6 @@ class Cards extends \yii\db\ActiveRecord
             'discount_bonus' => 'Бонус',
         ];
     }
+
+
 }
