@@ -56,7 +56,7 @@ class Managers extends \yii\db\ActiveRecord
             'access_token' => 'Access Token',
             'auth_key' => 'Auth Key',
             'banned' => 'Banned',
-            'email' => 'Електронная почта',
+            'email' => 'E-mail',
         ];
     }
 
