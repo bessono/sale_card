@@ -12,7 +12,15 @@ class m190914_150635_settings_discount extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('settings_discount',[
+            'first_step'=>$this->double(),
+            'first_discount_percent'=>$this->double(),
+            'second_step'=>$this->double(),
+            'second_discount_percent'=>$this->double(),
+            'third_step'=>$this->double(),
+            'third_discount_percent'=>$this->double(),
+            'bonus_discount_percent'=>$this->double()
+        ]);
     }
 
     /**
@@ -20,9 +28,7 @@ class m190914_150635_settings_discount extends Migration
      */
     public function safeDown()
     {
-        echo "m190914_150635_settings_discount cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('settings_discount');
     }
 
     /*
