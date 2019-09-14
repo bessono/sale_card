@@ -41,6 +41,11 @@ class Cards extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getCardsInUse(){
+        return $result =  $this->find()->count();
+        
+    }
+
     public function cardIssue($nomber){
         return $card = $this->find()->where(['nomber'=>$nomber])->one();
     }

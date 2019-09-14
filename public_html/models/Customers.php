@@ -25,6 +25,11 @@ class Customers extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public function getCountCustomers(){
+        return $this->find()->count();
+    }
+
     public function rules()
     {
         return [

@@ -9,7 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-
+use app\models\Cards;
+use app\models\Customers;
 
 class SiteController extends Controller
 {
@@ -68,7 +69,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $cardModel = new Cards();
+        $customersModel = new Customers();
+        $all_cards = $cardModel->getCardsInUse();
+        $all_customers = $customersModel->getCountCustomers();
+        return $this->render('index',['all_cards'=>$all_cards,'all_customers'=>$all_customers]);
     }
 
     /**
