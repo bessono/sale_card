@@ -58,7 +58,7 @@ AppAsset::register($this);
                         ['label'=>'-'],
                         ['label'=>'Зарегистрировать покупателя','url'=>['customers/add-form'], 'visible' => Yii::$app->user->can('manageCustomers')],
                         ['label'=>'-'],
-                        ['label'=>'Свойства Скидок','url'=>['sales/sale-index'], 'visible' => Yii::$app->user->can('manageDiscount')],
+                        ['label'=>'Свойства Скидок','url'=>['settings-discount/edit-form'], 'visible' => Yii::$app->user->can('manageDiscount')],
                         ['label'=>'Отзывы','url'=>['/site/contact'], 'visible'=>Yii::$app->user->can('managerDiscount')],
                         ['label'=>'-'],
                         ['label'=>'Добавить продовца','url'=>['managers/add-form'], 'visible'=>Yii::$app->user->can('manageCards')],
