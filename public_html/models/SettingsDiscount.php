@@ -32,6 +32,7 @@ class SettingsDiscount extends \yii\db\ActiveRecord
     {
         return [
             [['first_step', 'first_discount_percent', 'second_step', 'second_discount_percent', 'third_step', 'third_discount_percent', 'bonus_discount_percent'], 'number'],
+            [['first_step', 'first_discount_percent', 'second_step', 'second_discount_percent', 'third_step', 'third_discount_percent', 'bonus_discount_percent'], 'required'],
         ];
     }
 
@@ -41,13 +42,13 @@ class SettingsDiscount extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'first_step' => 'First Step',
-            'first_discount_percent' => 'First Discount Percent',
-            'second_step' => 'Second Step',
-            'second_discount_percent' => 'Second Discount Percent',
-            'third_step' => 'Third Step',
-            'third_discount_percent' => 'Third Discount Percent',
-            'bonus_discount_percent' => 'Bonus Discount Percent',
+            'first_step' => 'Первый порог',
+            'first_discount_percent' => 'Процент скидки до первого порога',
+            'second_step' => 'Второй порог',
+            'second_discount_percent' => 'Процент скидки второго порога',
+            'third_step' => 'Третий порог',
+            'third_discount_percent' => 'Процент скидки третьего порога',
+            'bonus_discount_percent' => 'Отчисления в бонусы с покупки (в виде процента)',
         ];
     }
 }

@@ -29,6 +29,7 @@ class m190914_150635_settings_discount extends Migration
     public function safeDown()
     {
         $this->dropTable('settings_discount');
+        
     }
 
     /*
