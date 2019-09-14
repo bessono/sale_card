@@ -80,12 +80,30 @@ class CardsController extends \yii\web\Controller
 
 
     public function actionAddFileForm(){
-        $model = new Cards();
+        
         $nombers = array();
         if(Yii::$app->request->post('nombers') != null){
-            $nombers = explode('/n',Yii::$app->request->post('nombers'));
-            exit(var_dump($nombers));
-            Yii::$app->session->setFlash('success','Сохранение карт');
+            $nombers = explode(PHP_EOL,Yii::$app->request->post('nombers'));
+            $counter = 0;
+            foreach($nombers as $item){
+                if($item != ""){
+                    $model = new Cards();
+                    $counter += 1;
+                    $model->nomber = trim($item);
+                    $model->valid = 1;
+                    $model->used = 0;
+                    $model->valid_to = strtotime('01-01-2023 23:00:00');
+                    $model->circulation = 1;
+                    $model->discount_percent = 0;
+                    $model->discount_bonus = 0;
+                    $model->isNewRecord = true;
+                    if($model->validate(['nomber'])) 
+                        {
+                            $model->save();
+                        } 
+                } 
+            }
+            Yii::$app->session->setFlash('success','Сохранение карт '.$counter.' выполнено успешно');
         } 
     	return $this->render('add-file-form');
     }
