@@ -80,6 +80,13 @@ class CardsController extends \yii\web\Controller
 
 
     public function actionAddFileForm(){
+        $model = new Cards();
+        $nombers = array();
+        if(Yii::$app->request->post('nombers') != null){
+            $nombers = explode('/n',Yii::$app->request->post('nombers'));
+            exit(var_dump($nombers));
+            Yii::$app->session->setFlash('success','Сохранение карт');
+        } 
     	return $this->render('add-file-form');
     }
 
