@@ -10,7 +10,7 @@ class SettingsDiscountController extends \yii\web\Controller
     public function actionEditForm()
     {
     	$model = new SettingsDiscount();
-    	$current_settings = $model->getSettings();
+    	
     	if($model->load(Yii::$app->request->post()) && $model->validate()){
     		if($model->updateData($model)){
     			Yii::$app->session->setFlash('success','Данные сохранены');
@@ -18,6 +18,7 @@ class SettingsDiscountController extends \yii\web\Controller
     			Yii::$app->session->setFlash('error','Ошибка сохранениея, обратитесь к разработчику');
     		}
     	}
+    	$current_settings = $model->getSettings();
     	return $this->render('edit-form',['model'=>$model,'current_settings'=>$current_settings]);
     }
 
