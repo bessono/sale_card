@@ -13,12 +13,12 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'first_step')->textInput()->label('Первый порог');
+				echo $form->field($model,'first_step')->textInput(['value'=>$current_settings->first_step])->label('Первый порог');
 			?>
 			</div>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'first_discount_percent')->textInput()->label('Процент скидки до первого порога');
+				echo $form->field($model,'first_discount_percent')->textInput(['value'=>$current_settings->first_discount_percent])->label('Процент скидки до первого порога');
 			?>
 			</div>
 			</div>
@@ -27,12 +27,12 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'second_step')->textInput()->label('Второй порог');
+				echo $form->field($model,'second_step')->textInput(['value'=>$current_settings->second_step])->label('Второй порог');
 			?>
 			</div>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'second_discount_percent')->textInput()->label('Процент скидки до Второго порога');
+				echo $form->field($model,'second_discount_percent')->textInput(['value'=>$current_settings->second_discount_percent])->label('Процент скидки до Второго порога');
 			?>
 			</div>
 			</div>
@@ -41,18 +41,18 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'third_step')->textInput()->label('Третий порог');
+				echo $form->field($model,'third_step')->textInput(['value'=>$current_settings->third_step])->label('Третий порог');
 			?>
 			</div>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'third_discount_percent')->textInput()->label('Процент скидки до трктьего порога');
+				echo $form->field($model,'third_discount_percent')->textInput(['value'=>$current_settings->third_discount_percent])->label('Процент скидки до трктьего порога');
 			?>
 			</div>
 			</div>
 			<hr>
 			<?php
-				echo $form->field($model,'bonus_discount_percent')->textInput()->label('Отчисления в бонусы с покупки (в виде процента)');
+				echo $form->field($model,'bonus_discount_percent')->textInput(['value'=>$current_settings->bonus_discount_percent])->label('Отчисления в бонусы с покупки (в виде процента)');
 				echo Html::submitButton('Сохранить настройки',['class'=>'btn btn-primary'])
 			?>
 

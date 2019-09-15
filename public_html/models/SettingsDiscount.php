@@ -25,6 +25,10 @@ class SettingsDiscount extends \yii\db\ActiveRecord
         return 'settings_discount';
     }
 
+    public function getSettings(){
+        return $this->find()->select(['*'])->one();
+    }
+
     /**
      * {@inheritdoc}
      */
