@@ -13,7 +13,7 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'first_step')->textInput(['value'=>$current_settings->first_step])->label('Первый порог');
+				echo $form->field($model,'first_step')->textInput(['value'=>$current_settings->first_step])->label('Первый порог(сумма)');
 			?>
 			</div>
 			<div class='col-md-6'>
@@ -27,7 +27,7 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'second_step')->textInput(['value'=>$current_settings->second_step])->label('Второй порог');
+				echo $form->field($model,'second_step')->textInput(['value'=>$current_settings->second_step])->label('Второй порог(сумма)');
 			?>
 			</div>
 			<div class='col-md-6'>
@@ -41,7 +41,7 @@ $form->begin();
 			<div class='row'>
 			<div class='col-md-6'>
 			<?php
-				echo $form->field($model,'third_step')->textInput(['value'=>$current_settings->third_step])->label('Третий порог');
+				echo $form->field($model,'third_step')->textInput(['value'=>$current_settings->third_step])->label('Третий порог(сумма)');
 			?>
 			</div>
 			<div class='col-md-6'>

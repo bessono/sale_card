@@ -12,7 +12,11 @@ class SettingsDiscountController extends \yii\web\Controller
     	$model = new SettingsDiscount();
     	$current_settings = $model->getSettings();
     	if($model->load(Yii::$app->request->post()) && $model->validate()){
-    		Yii::$app->session->setFlash('success','Данные сохранены');
+    		if($model->updateData($model)){
+    			Yii::$app->session->setFlash('success','Данные сохранены');
+    		} else {
+    			Yii::$app->session->setFlash('error','Ошибка сохранениея, обратитесь к разработчику');
+    		}
     	}
     	return $this->render('edit-form',['model'=>$model,'current_settings'=>$current_settings]);
     }

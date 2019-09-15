@@ -13,6 +13,7 @@ class m190914_150635_settings_discount extends Migration
     public function safeUp()
     {
         $this->createTable('settings_discount',[
+            'id'=>$this->primaryKey(),
             'first_step'=>$this->double(),
             'first_discount_percent'=>$this->double(),
             'second_step'=>$this->double(),

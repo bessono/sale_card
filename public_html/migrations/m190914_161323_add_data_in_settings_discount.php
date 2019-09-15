@@ -30,7 +30,7 @@ class m190914_161323_add_data_in_settings_discount extends Migration
     {
         $this->delete('settings_discount');
 
-        return false;
+        
     }
 
     /*

@@ -29,6 +29,18 @@ class SettingsDiscount extends \yii\db\ActiveRecord
         return $this->find()->select(['*'])->one();
     }
 
+    public function updateData($model){
+        $settings = $this->find()->one();
+        $settings->first_step = $model->first_step;
+        $settings->first_discount_percent = $model->first_discount_percent;
+        $settings->second_step = $model->second_step;
+        $settings->second_discount_percent = $model->second_discount_percent;
+        $settings->third_step = $model->third_step;
+        $settings->third_discount_percent = $model->third_discount_percent;
+        $settings->bonus_discount_percent = $model->bonus_discount_percent;
+        return $settings->update();
+    }
+
     /**
      * {@inheritdoc}
      */
