@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+use yii\helpers\Url;
 
 $this->title = 'Sale&Cards';
 
@@ -35,7 +36,7 @@ $this->title = 'Sale&Cards';
 
     </div>
     <div style="text-align:center;">
-    <p>Если вы первый раз пытаетесь пользоаться данной программой прошу вас обратиться в раздел помощи.</p>
+    <p>Если вы первый раз пытаетесь пользоаться данной программой прошу вас обратиться в раздел <a href="<?php echo Url::to(['site/help'])?>">Помощи</a>.</p>
     <div>
 </div>
 
