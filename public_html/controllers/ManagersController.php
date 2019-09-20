@@ -4,10 +4,26 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Managers;
-
+use app\controllers\AccsessControl;
+use yii\filters\AccessControl;
 
 class ManagersController extends \yii\web\Controller
 {
+
+    public function behaviors(){
+        return [
+            'access'=>[
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'roles'=>['manageManagers'],
+                    ]
+                ]
+            ]
+        ];
+    }
+
     public function actionAddForm()
     {
     	$model = new Managers();

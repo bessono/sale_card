@@ -1,12 +1,29 @@
 <?php
 
 namespace app\controllers;
-use app\models\SettingsDiscount;
-use Yii;
 
+use Yii;
+use app\controllers\AccsessControl;
+use yii\filters\AccessControl;
+use app\models\SettingsDiscount;
 
 class SettingsDiscountController extends \yii\web\Controller
 {
+
+    public function behaviors(){
+        return [
+            'access'=>[
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'roles'=>['manageDiscount'],
+                    ]
+                ]
+            ]
+        ];
+    }
+
     public function actionEditForm()
     {
     	$model = new SettingsDiscount();

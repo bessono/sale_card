@@ -4,9 +4,25 @@ namespace app\controllers;
 use Yii;
 use app\models\Customers;
 use app\models\Cards;
+use app\controllers\AccessControll;
+use yii\filters\AccessControl;
 
 class CustomersController extends \yii\web\Controller
 {
+     public function behaviors(){
+        return [
+            'access'=>[
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow'=>true,
+                        'roles'=>['manageCustomers'],
+                    ]
+                ]
+            ]
+        ];
+    }
+
     public function actionAddForm()
     {
     	$model = new Customers();
