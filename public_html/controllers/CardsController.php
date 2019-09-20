@@ -102,11 +102,17 @@ class CardsController extends \yii\web\Controller
                     $model->isNewRecord = true;
                     if($model->validate(['nomber']))
                         {
-                            $model->save();
+                            if($model->save()){
+                                Yii::$app->session->setFlash('success','Карты сохранены, количество = '.$counter);
+                            } else {
+                                Yii::$app->session->setFlash('error','Карты не могуть быть сохранены, обратитесь к разработчику');
+                            }
+                        } else {
+                            Yii::$app->session->setFlash('success','Одна из карт не прошла валидацию '.$item.' ');
                         } 
                 } 
             }
-            Yii::$app->session->setFlash('success','Сохранение карт '.$counter.' выполнено успешно');
+            
         } 
     	return $this->render('add-file-form');
     }
