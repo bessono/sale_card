@@ -85,6 +85,9 @@ class CardsController extends \yii\web\Controller
         if(Yii::$app->request->post('nombers') != null){
             $nombers = explode(PHP_EOL,Yii::$app->request->post('nombers'));
             $counter = 0;
+            $date = explode('-',Yii::$app->request->post('valid_to'));
+            $valid_to = $date[2].'-'.$date[1].'-'.$date[0];
+            $valid_to = strtotime($valid_to);
             foreach($nombers as $item){
                 if($item != ""){
                     $model = new Cards();
@@ -92,12 +95,12 @@ class CardsController extends \yii\web\Controller
                     $model->nomber = trim($item);
                     $model->valid = 1;
                     $model->used = 0;
-                    $model->valid_to = strtotime('01-01-2023 23:00:00');
+                    $model->valid_to = $valid_to;
                     $model->circulation = 1;
                     $model->discount_percent = 0;
                     $model->discount_bonus = 0;
                     $model->isNewRecord = true;
-                    if($model->validate(['nomber'])) 
+                    if($model->validate(['nomber']))
                         {
                             $model->save();
                         } 

@@ -12,6 +12,9 @@ $form->begin();
 	<?php
 	echo Html::label('Вставте (впишите) номера карточек');
 	echo Html::textArea('nombers','',['name'=>'nombers','class'=>'form-control','rows'=>'10','cols'=>'20']);
+	echo Html::label('Срок действия карт');
+	echo Html::tag('br');
+	echo Html::textInput('valid_to',date('2030-'.'m-d'),['class'=>'form-control','type'=>'date','min'=>date('Y-m-d')]);
 	echo Html::tag('hr');
 	echo Html::submitButton('Сохранить карты в базе',['class'=>'btn btn-warning']);
 	?>
