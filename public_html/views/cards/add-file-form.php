@@ -15,6 +15,9 @@ $form->begin();
 	echo Html::label('Срок действия карт');
 	echo Html::tag('br');
 	echo Html::textInput('valid_to',date('2030-'.'m-d'),['class'=>'form-control','type'=>'date','min'=>date('Y-m-d')]);
+	echo Html::tag('br');
+	echo Html::label('Номер партии');
+	echo Html::textInput('circulation','',['class'=>'form-control']);
 	echo Html::tag('hr');
 	echo Html::submitButton('Сохранить карты в базе',['class'=>'btn btn-warning']);
 	?>
