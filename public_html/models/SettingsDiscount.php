@@ -49,6 +49,7 @@ class SettingsDiscount extends \yii\db\ActiveRecord
         return [
             [['first_step', 'first_discount_percent', 'second_step', 'second_discount_percent', 'third_step', 'third_discount_percent', 'bonus_discount_percent'], 'number'],
             [['first_step', 'first_discount_percent', 'second_step', 'second_discount_percent', 'third_step', 'third_discount_percent', 'bonus_discount_percent'], 'required'],
+            [['first_discount_percent', 'second_discount_percent','third_discount_percent', 'bonus_discount_percent'],'number', 'max'=>100],
         ];
     }
 
