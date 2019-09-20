@@ -40,8 +40,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items'=>[
-                ['label'=>'Вход','url'=>['/site/login']]
-        ]
+                ['label'=>'Помощь','url'=>['/site/help']],
+                ['label'=>'Вход','url'=>['/site/login']],
+            ]
     ]);
     NavBar::end();
     } else {
@@ -49,7 +50,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items'=>[
                 	
-
+                    ['label'=>'Помощь','url'=>['/site/help']],
                 	['label'=>'Настройки','items'=>[
                 		['label'=>'Свойства Карты','url'=>['cards/delete-form'], 'visible' => Yii::$app->user->can('manageCards')],
                 		['label'=>'Добавить карту','url'=>['cards/add-form'], 'visible'=> Yii::$app->user->can('manageCards')],
