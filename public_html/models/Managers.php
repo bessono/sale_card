@@ -90,6 +90,9 @@ class Managers extends \yii\db\ActiveRecord
 
     public function deleteManagerById($id){
         $manager = $this->find()->where(['id'=>$id])->one();
+        if($manager->username == "admin"){
+            return false;
+        }
         $manager->delete();
     }
 
