@@ -12,7 +12,12 @@ class m190921_113357_customers_log extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('customers_log',[
+            'id'=>$this->primaryKey(),
+            'customer_id'=>$this->integer(),
+            'summ'=>$this->integer(),
+            'additional'=>$this->text(),
+        ]);
     }
 
     /**
@@ -20,9 +25,7 @@ class m190921_113357_customers_log extends Migration
      */
     public function safeDown()
     {
-        echo "m190921_113357_customers_log cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('customers_log');
     }
 
     /*
