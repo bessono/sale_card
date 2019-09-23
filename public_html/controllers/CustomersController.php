@@ -6,6 +6,8 @@ use app\models\Customers;
 use app\models\Cards;
 use app\controllers\AccessControll;
 use yii\filters\AccessControl;
+use app\models\CustomersLog;
+
 
 class CustomersController extends \yii\web\Controller
 {
@@ -21,6 +23,14 @@ class CustomersController extends \yii\web\Controller
                 ]
             ]
         ];
+    }
+
+    public function actionWorkForm(){
+        $time ="";
+        if(!is_null(Yii::$app->request->post('nomber')) && Yii::$app->request->post('nomber') != ''){
+            $time = date('H-i-s');
+        }
+        return $this->render('work-form',['time'=>$time]);
     }
 
     public function actionAddForm()

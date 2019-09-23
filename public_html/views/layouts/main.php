@@ -50,7 +50,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items'=>[
                     ['label'=>'Работа с пользователем','items'=>[
-                        ['label'=>'Покупка','url'=>['main/main-form']],
+                        ['label'=>'Покупка','url'=>['customers/work-form']],
                     ]],
                     ['label'=>'Помощь','url'=>['/site/help']],
                 	['label'=>'Настройки','items'=>[
