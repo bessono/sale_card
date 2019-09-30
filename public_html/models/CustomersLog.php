@@ -41,8 +41,12 @@ class CustomersLog extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'customer_id' => 'Customer ID',
-            'summ' => 'Summ',
-            'additional' => 'Additional',
+            'summ' => 'Сумма',
+            'additional' => 'Доп. инфо',
         ];
+    }
+
+    public function getSummOfBuys($id){
+        return $this->find()->select('SUM(summ) as summ')->where(['id'=>$id])->all();
     }
 }

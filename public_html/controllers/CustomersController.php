@@ -26,11 +26,18 @@ class CustomersController extends \yii\web\Controller
     }
 
     public function actionWorkForm(){
-        $time ="";
+        $cards_model = new Cards();
+        $customer_log = new CustomersLog();
+        $card = null;
+        $summ = null;
         if(!is_null(Yii::$app->request->post('nomber')) && Yii::$app->request->post('nomber') != ''){
-            $time = date('H-i-s');
+            $card = $cards_model->cardIssue(Yii::$app->request->post('nomber')) ? $cards_model->cardIssue(Yii::$app->request->post('nomber')) : null;
+            if($card->customer != null){
+                $summ = $customer_log->getSummOfBuys($card->customer->id);
+            }
         }
-        return $this->render('work-form',['time'=>$time]);
+        
+        return $this->render('work-form',['card'=>$card,'summ'=>$summ]);
     }
 
     public function actionAddForm()
