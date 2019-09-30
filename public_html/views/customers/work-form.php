@@ -6,6 +6,7 @@ use yii\helpers\Html;
 $pjax = new Pjax();
 $pjax->begin();
 	echo Html::beginForm();
+	echo Html::label('Введите карту покупателя');
 	echo Html::textInput('nomber','',['class'=>'form-control']);
 	echo Html::tag('br');
 	echo Html::submitButton('Проверить карту',['class'=>'btn btn-primary']);
@@ -41,7 +42,16 @@ $pjax->begin();
 			echo 'ID пользователя - '.Html::encode($card->customer->id);
 			echo Html::tag('br');
 			echo 'Сумма покупок = '.Html::encode($sum);
-			
+			echo Html::tag('br');
+			echo 'Процент скидок = '.Html::encode($card->discount_percent);
+			echo Html::tag('br');
+			echo 'Бонусы = '.Html::encode($card->discount_bonus);
+			echo Html::tag('hr');
+			echo Html::label('Сумма покупки');
+			echo Html::textInput('summ','0',['class'=>'form-control','onkeyup'=>'getCalcSumm(this.value,'.$card->discount_percent.','.$card->discount_bonus.');']);
+			echo Html::tag('br');
+			echo Html::beginTag('div',['id'=>'button_container']);
+			echo Html::endTag('div');
 		} else {
 			Yii::$app->session->setFlash('error',$error);
 		}

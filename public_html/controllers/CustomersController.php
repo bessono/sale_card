@@ -32,11 +32,11 @@ class CustomersController extends \yii\web\Controller
         $summ = null;
         if(!is_null(Yii::$app->request->post('nomber')) && Yii::$app->request->post('nomber') != ''){
             $card = $cards_model->cardIssue(Yii::$app->request->post('nomber')) ? $cards_model->cardIssue(Yii::$app->request->post('nomber')) : null;
-            if($card->customer != null){
+            if($card != null && $card->customer != null){
                 $summ = $customer_log->getSummOfBuys($card->customer->id);
             }
         }
-        
+
         return $this->render('work-form',['card'=>$card,'summ'=>$summ]);
     }
 
