@@ -116,7 +116,11 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Бессонов Александр Евгеньевич<br><a href="http://bessono.ru" title="Посетить сайт разработчика" target="_blank">besssono.ru</a><br> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Бессонов Александр Евгеньевич<br><a href="http://bessono.ru" title="Посетить сайт разработчика" target="_blank">besssono.ru</a><br>
+            <a href="mail-to://bezsonovalexander@gmail.com">bezsonovalexander@gmail.com
+            </a>
+            <br>
+         <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
