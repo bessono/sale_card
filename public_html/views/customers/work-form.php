@@ -3,15 +3,16 @@
 use yii\widgets\Pjax;
 use yii\helpers\Html;
 
-$pjax = new Pjax();
-$pjax->begin();
+//$pjax = new Pjax();
+//$pjax->begin();
 	echo Html::beginForm();
 	echo Html::label('Введите карту покупателя');
 	echo Html::textInput('nomber','',['class'=>'form-control']);
 	echo Html::tag('br');
 	echo Html::submitButton('Проверить карту',['class'=>'btn btn-primary']);
 	echo Html::endForm();
-	
+
+
 	if($card != null){
 		$error = false;
 		echo Html::beginTag('div',['class'=>'container text-center']);
@@ -49,8 +50,14 @@ $pjax->begin();
 			echo 'Бонусы = '.Html::BeginTag('b',['class'=>'text-danger']).Html::encode($card->discount_bonus).Html::EndTag('b');
 			echo Html::endTag('h3');
 			echo Html::tag('hr');
-			echo Html::label('Сумма покупки');
-			echo Html::textInput('summ','0',['class'=>'form-control','onkeyup'=>'getCalcSumm(this.value,'.$card->discount_percent.','.$card->discount_bonus.','.$card->customer->id.');']);
+			// text fields
+				echo Html::label('Сумма покупки');
+				echo Html::textInput('summ','0',['id'=>'summ','class'=>'form-control','onkeyup'=>'getCalcSumm(this.value,'.$card->discount_percent.','.$card->discount_bonus.','.$card->customer->id.');']);
+				echo Html::BeginTag('div',['class'=>'bg-secondary']);
+				echo Html::label('Сумма от покупателя (не обязательно)');
+				echo Html::textInput('customer_cash','0',['id'=>'customer_cash','class'=>'form-control bg-secondary']);
+				echo Html::EndTag('div');
+			//--------------
 			echo Html::tag('br');
 			echo Html::beginTag('div',['id'=>'button_container']);
 			echo Html::endTag('div');
@@ -59,4 +66,6 @@ $pjax->begin();
 		}
 		echo Html::endTag('div');
 	}
-$pjax->end();
+//$pjax->end();
+?>
+	
